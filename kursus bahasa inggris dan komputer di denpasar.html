@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Interaktif Kursus Bahasa Inggris & Komputer SMP di Denpasar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Disediakan di Bagian Terpisah di Bawah */
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-800 mb-2">Panduan Kursus Terbaik di Denpasar</h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">Temukan kursus Bahasa Inggris dan Komputer terbaik di Denpasar untuk tingkat SMP dan Umum, lengkap dengan sertifikat dan detail kontak.</p>
+        </header>
+
+        <main>
+            <section id="main-filters" class="mb-8 p-6 bg-white rounded-2xl shadow-md">
+                <h3 class="text-xl font-semibold mb-4 text-slate-800">Pilih Kategori Kursus:</h3>
+                <div class="flex flex-wrap gap-3">
+                    <button data-category="English" class="btn-main-filter active flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🗣️</span> Bahasa Inggris
+                    </button>
+                    <button data-category="Komputer" class="btn-main-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">💻</span> Komputer
+                    </button>
+                </div>
+            </section>
+
+            <section id="sub-filters" class="mb-8 p-6 bg-white rounded-2xl shadow-md">
+                <h3 class="text-xl font-semibold mb-4 text-slate-800">Saring Pilihan Anda:</h3>
+                <div id="english-filters" class="flex flex-wrap gap-3 hidden">
+                    <button data-filter="hasCertificate" class="btn-sub-filter active flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🎓</span> Menyediakan Sertifikat
+                    </button>
+                    <button data-filter="isForSmp" class="btn-sub-filter active flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🧑‍🎓</span> Program Khusus SMP
+                    </button>
+                    <button data-filter="isPrivate" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">👤</span> Kelas Privat (1-on-1)
+                    </button>
+                    <button data-filter="hasNative" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🌐</span> Ada Guru Native
+                    </button>
+                </div>
+                <div id="computer-filters" class="flex flex-wrap gap-3 hidden">
+                     <button data-filter="hasCertificate" class="btn-sub-filter active flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🎓</span> Menyediakan Sertifikat
+                    </button>
+                    <button data-filter="isPrivate" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">👤</span> Kelas Privat (1-on-1)
+                    </button>
+                    <button data-filter="programType_Dasar & Office" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">📊</span> Dasar & Office
+                    </button>
+                     <button data-filter="programType_Desain & Kreatif" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🎨</span> Desain & Kreatif
+                    </button>
+                    <button data-filter="programType_Koding & Web" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">🌐</span> Koding & Web
+                    </button>
+                    <button data-filter="isSuitableForKidsTeens" class="btn-sub-filter flex items-center gap-2 px-4 py-2 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200">
+                        <span class="text-lg">👦👧</span> Cocok untuk Anak/Remaja
+                    </button>
+                </div>
+            </section>
+
+            <section id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+            </section>
+
+            <section id="comparison-chart-section" class="mb-16 p-6 bg-white rounded-2xl shadow-lg hidden">
+                <h2 class="text-2xl font-bold text-center mb-6 text-slate-800">Perbandingan Biaya Kursus Bahasa Inggris</h2>
+                 <p class="text-center text-slate-500 mb-6 -mt-4 max-w-xl mx-auto">Visualisasi ini membandingkan biaya per periode/paket untuk setiap lembaga Bahasa Inggris. Catatan: beberapa biaya tidak tersedia atau bervariasi, sehingga tidak ditampilkan.</p>
+                <div class="chart-container">
+                    <canvas id="costChart"></canvas>
+                </div>
+            </section>
+
+            <section id="recommendations" class="p-8 bg-teal-50 border-2 border-teal-200 rounded-2xl">
+                <h2 class="text-2xl font-bold text-center mb-4 text-teal-800">Rekomendasi & Pertimbangan Akhir</h2>
+                <p class="text-center text-teal-700 max-w-3xl mx-auto mb-6">Berdasarkan analisis, berikut adalah ringkasan untuk membantu Anda membuat keputusan yang tepat sesuai dengan kebutuhan spesifik anak Anda.</p>
+                <div id="recommendation-content" class="grid md:grid-cols-2 gap-6 text-left">
+                    </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div id="modal-content" class="modal-content bg-white w-full max-w-3xl max-h-[90vh] rounded-2xl shadow-2xl overflow-y-auto transform scale-95">
+            <div class="sticky top-0 bg-white p-4 sm:p-6 border-b z-10 flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold text-slate-800"></h2>
+                <button id="modal-close" class="text-slate-500 hover:text-slate-800 text-3xl font-bold">&times;</button>
+            </div>
+            <div id="modal-body" class="p-4 sm:p-6">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Kode JavaScript Disediakan di Bagian Terpisah di Bawah
+    </script>
+</body>
+</html>
